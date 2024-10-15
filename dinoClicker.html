@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <title>Boomslap!</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="boomslapClicker.css"/>
+        <script src="boomslapClicker.js" defer></script>
+    </head>
+    <body>
+        <a href="#" class="clickDino" onclick="dinoClick(1)"><img src="https://clipart-library.com/8300/2368/dinosaur-egg-vector-illustration-cartoon-icon_400474-482.jpg" width="750" height="675" /></a>
+        <div class="bank">Dino Eggs: <span id="dinoEggs">0</span></div>
+        <div class="eggspersecond">Eggs Per Second: <span id="eggspersecond"> 0 </span></div>
+        <div class="split right outer display">
+            <div class="building buy Raptors" href="#" onclick="buyRaptor()">
+                Velociraptors: <span id="veloRaptor">0</span> <br>
+                Raptor Cost: <span id="raptorCost"> 10 </span>
+            </div>
+            <div class="building buy Dilophasaurs" href="#"  onclick="buyDilo()">
+                Dilophasauruses: <span id="diloSaur">0</span> <br>
+                Dilophasaur Cost: <span id="diloCost">100</span>
+            </div>
+            <div class="building buy Ankylosaurus" href="#" onclick="buyAnkylo()">
+                Ankylosauruses: <span id="ankyloSaur">0</span> <br>
+                Ankylosaurus Cost: <span id="ankyloCost">1000</span>
+            </div>
+            <div class="building buy Alamosaurus" href="#" onclick="buyAlamo()">
+                Alamosauruses: <span id="alamoSaur">0</span> <br>
+                Alamosaurus Cost: <span id="alamoCost">10000</span>
+            </div>
+            <div class="building buy Stegosaurus" href="#" onclick="buyStego()">
+                Stegosauruses: <span id="stegoSaur">0</span> <br>
+                Stegosaurus Cost: <span id="stegoCost">100000</span>
+            </div>
+            <div class="building buy Jaxartosaurus" href="#" onclick="buyJaxa()">
+                Jaxartosauruses: <span id="jaxaSaur">0</span> <br>
+                Jaxartosaurus Cost: <span id="jaxaCost">1000000</span>
+            </div>
+        </div>
+    </body>
+</html>
