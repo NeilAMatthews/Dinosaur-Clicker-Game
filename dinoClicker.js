@@ -1,6 +1,6 @@
 var gameData = {
     dinoEggs: 0,
-    dinoEggsClick: 1000000,
+    dinoEggsMake: 1000000,
 
     veloRaptor: 0,
     raptorMake: 0,
@@ -12,25 +12,36 @@ var gameData = {
 
     ankyloSaur: 0,
     anklyoMake: 0,
-    ankyloCost: 1000
+    ankyloCost: 1000,
+
+    alamoSaur: 0,
+    alamoMake: 0,
+    alamoCost:10000,
+
+    stegoSaur: 0,
+    stegoMake: 0,
+    stegoCost: 100000,
+
+    jaxaSaur: 0,
+    jaxaMake: 0,
+    jaxaCost: 1000000,
 
 }
 
-
-// The +1 script for the button
-function dinoClick() {
-    gameData.dinoEggs += gameData.dinoEggsClick; // when click dino number gets a +1
+// Makes the bank numbeer go up depending on the intput
+function dinoClick(input) {
+    gameData.dinoEggs += input; 
     document.getElementById("dinoEggs").innerHTML = gameData.dinoEggs; // updates the bank
 }
-
+// This is all of the buy functions for the dinosaurs
 function buyRaptor() {
     if(gameData.dinoEggs >= gameData.raptorCost){ // checks if player can afford the raptors
         gameData.dinoEggs -= gameData.raptorCost; // subtracts the cost from the total eggs
         gameData.veloRaptor += 1; // adds one to the raptor count
-        gameData.raptorMake += 1; // adds one to how much it makes
+        gameData.raptorMake += 1; // adds to how much it makes
         document.getElementById("veloRaptor").innerHTML = gameData.veloRaptor; // updates the number of raptors
         document.getElementById("dinoEggs").innerHTML = gameData.dinoEggs; // updates the bank
-        gameData.raptorCost = Math.floor(Math.pow(gameData.raptorCost, 1.05));
+        gameData.raptorCost = Math.floor(Math.pow(gameData.raptorCost, 1.05)); // calculate next cost
         document.getElementById("raptorCost").innerHTML = gameData.raptorCost; // udates the raptor cost
     }
 }
@@ -39,94 +50,82 @@ function buyDilo() {
     if(gameData.dinoEggs >= gameData.diloCost){ // checks if player can afford the dilo
         gameData.dinoEggs -= gameData.diloCost; // subtract the cost from your bank
         gameData.diloSaur += 1; // add one to the display
-        gameData.diloMake += 5; // add 10 to have much they make
+        gameData.diloMake += 5; // adds to have much they make
         document.getElementById("diloSaur").innerHTML = gameData.diloSaur; // updates the number of dilo
         document.getElementById("dinoEggs").innerHTML = gameData.dinoEggs; // updates the bank
-        gameData.diloCost = Math.floor(Math.pow(gameData.diloCost, 1.005));
+        gameData.diloCost = Math.floor(Math.pow(gameData.diloCost, 1.005)); // calculate next cost
         document.getElementById("diloCost").innerHTML = gameData.diloCost; // updates the dilo cost
     }
 }
 
-
-//Ankylosaurus
 function buyAnkylo() {
     if(gameData.dinoEggs >= gameData.ankyloCost){ // checks if player can afford the ankylosaurus
-        gameData.dinoEggs -= gameData.ankyloCost;
-        gameData.ankyloSaur += 1;
-        gameData.anklyoMake += 50;
+        gameData.dinoEggs -= gameData.ankyloCost; // subtract the cost from main bank
+        gameData.ankyloSaur += 1; // add one to the display
+        gameData.anklyoMake += 50; //adds to how much they make
         document.getElementById("ankyloSaur").innerHTML = gameData.ankyloSaur; // updates the number of ankylosaurus
         document.getElementById("dinoEggs").innerHTML = gameData.dinoEggs; // updates the bank
-        gameData.ankyloCost = Math.floor(Math.pow(gameData.ankyloCost, 1.005));
+        gameData.ankyloCost = Math.floor(Math.pow(gameData.ankyloCost, 1.005)); //calculate next cost
         document.getElementById("ankyloCost").innerHTML = gameData.ankyloCost; // updates the ankylosaurus cost
     }
 }
 
+function buyAlamo() {
+    if(gameData.dinoEggs >= gameData.alamoCost){ // checks if player can afford the alamosaurus
+        gameData.dinoEggs -= gameData.alamoCost; // subtract cost from main bank
+        gameData.alamoSaur += 1; // add one to the count
+        gameData.alamoMake += 500; // adds to how much they make
+        document.getElementById("alamoSaur").innerHTML = gameData.alamoSaur; // updates the number of alamosaurus
+        document.getElementById("dinoEggs").innerHTML = gameData.dinoEggs; // updates the bank
+        gameData.alamoCost = Math.floor(Math.pow(gameData.alamoCost, 1.005)); // calculate next cost
+        document.getElementById("alamoCost").innerHTML = gameData.alamoCost; // updates the alamosaurus cost
+    }
+}
 
-// // Alamosaurus
-// var alamoSaur = 0; // number of alamosaurus
-// var alamoMake = 500; // how much each alamosaurus makes
+function buyStego() {
+    if(gameData.dinoEggs >= gameData.stegoCost) { // checks if player can afford the stegosaurus
+        gameData.dinoEggs -= gameData.stegoCost; // subtracts the cost from the total eggs
+        gameData.stegoSaur += 1; // adds one to the stegosaurus count
+        gameData.stegoMake += 1500; // adds to how much the dinos make
+        document.getElementById("stegoSaur").innerHTML = gameData.stegoSaur; // updates the number of stegosaurus
+        document.getElementById("dinoEggs").innerHTML = gameData.dinoEggs; // updates the bank
+        gameData.stegoCost = Math.floor(Math.pow(gameData.stegoCost, 1.005)); // calculates next cost
+        document.getElementById("stegoCost").innerHTML = gameData.stegoCost; // updates stego cost
+    }
+}
 
-// function buyAlamo() {
-//     var alamoCost = Math.floor(10000 * Math.pow(1.05, alamoSaur)); // calculates the alamosaurus cost by multiplying the cost by 1.05 every time
-//     if(dinoEggs >= alamoCost){ // checks if player can afford the alamosaurus
-//         alamoSaur = alamoSaur + 1; // adds one to the alamosaurus count
-//         dinoEggs = dinoEggs - alamoCost; // subtracts the cost from the total eggs
-//         document.getElementById("alamoSaur").innerHTML = alamoSaur; // updates the number of alamosaurus
-//         document.getElementById("dinoEggs").innerHTML = dinoEggs; // updates the bank
-//     }
-//     var nextAlamoCost = Math.floor(10000 * Math.pow(1.05, alamoSaur)); // calcultates the next alamosaurus cost by taking the previous * 1.05
-//     document.getElementById("alamoCost").innerHTML = nextAlamoCost; // updates the alamosaurus cost
-// }
+function buyJaxa() {
+    if(gameData.dinoEggs >= gameData.jaxaCost){ // checks if player can afford the jaxartosaurus
+        gameData.dinoEggs -= gameData.jaxaCost // subtracts the cost from bank
+        gameData.jaxaSaur += 1; // adds one to the jaxartosaurus count
+        gameData.jaxaMake += 5000; // adds to how much they make
+        document.getElementById("jaxaSaur").innerHTML = gameData.jaxaSaur; // updates the number of jaxartosaurus
+        document.getElementById("dinoEggs").innerHTML = gameData.dinoEggs; // updates the bank
+        gameData.jaxaCost = Math.floor(Math.pow(gameData.jaxaCost, 1.0005)); // calcultates the next jaxartosaurus cost by taking the previous * 1.05
+        document.getElementById("jaxaCost").innerHTML = gameData.jaxaCost; // updates the jaxartosaurus cost
+    }
+}
 
-
-// // Stegosaurus
-// var stegoSaur = 0; // number of stegosaurus
-// var stegoMake = 1500; // how much each stegosaurus makes
-
-// function buyStego() {
-//     var stegoCost = Math.floor(100000 * Math.pow(1.05, stegoSaur)); // calculates the stegosaurus cost by multiplying the cost by 1.05 every time
-//     if(dinoEggs >= stegoCost){ // checks if player can afford the stegosaurus
-//         stegoSaur = stegoSaur + 1; // adds one to the stegosaurus count
-//         dinoEggs = dinoEggs - stegoCost; // subtracts the cost from the total eggs
-//         document.getElementById("stegoSaur").innerHTML = stegoSaur; // updates the number of stegosaurus
-//         document.getElementById("dinoEggs").innerHTML = dinoEggs; // updates the bank
-//     }
-//     var nextStegoCost = Math.floor(100000 * Math.pow(1.05, stegoSaur)); // calcultates the next stegosaurus cost by taking the previous * 1.05
-//     document.getElementById("stegoCost").innerHTML = nextStegoCost; // updates the stegosaurus cost
-// }
-
-
-// // Jaxartosaurus
-// var jaxaSaur = 0; // number of jaxartosaurus
-// var jaxaMake = 5000; // how much each jaxartosaurus makes
-
-// function buyJaxa() {
-//     var jaxaCost = Math.floor(1000000 * Math.pow(1.05, jaxaSaur)); // calculates the jaxartosaurus cost by multiplying the cost by 1.05 every time
-//     if(dinoEggs >= jaxaCost){ // checks if player can afford the jaxartosaurus
-//         jaxaSaur = jaxaSaur + 1; // adds one to the jaxartosaurus count
-//         dinoEggs = dinoEggs - jaxaCost; // subtracts the cost from the total eggs
-//         document.getElementById("jaxaSaur").innerHTML = jaxaSaur; // updates the number of jaxartosaurus
-//         document.getElementById("dinoEggs").innerHTML = dinoEggs; // updates the bank
-//     }
-//     var nextJaxaCost = Math.floor(1000000 * Math.pow(1.05, jaxaSaur)); // calcultates the next jaxartosaurus cost by taking the previous * 1.05
-//     document.getElementById("jaxaCost").innerHTML = nextJaxaCost; // updates the jaxartosaurus cost
-// }
+function eggsPerSecond() {
+    gameData.eggsPerSecond = gameData.raptorMake + gameData.diloMake + gameData.alamoMake + gameData.anklyoMake + gameData.stegoMake + gameData.jaxaMake;
+    document.getElementById("eggspersecond").innerHTML = gameData.eggsPerSecond;
+}
 
 
-
-
-// window.setInterval(function() {
-//     dinoClick(veloRaptor * raptorMake);
-//     dinoClick(diloSaur * diloMake);
-//     dinoClick(ankyloSaur * anklyoMake);
-//     dinoClick(alamoSaur * alamoMake);
-//     dinoClick(stegoSaur * stegoMake);
-//     dinoClick(jaxaSaur * jaxaMake);
-// }, 1000);
+// Game play loop
+var mainGameLoop = window.setInterval(function() { 
+    dinoClick(gameData.raptorMake);
+    dinoClick(gameData.diloMake);
+    dinoClick(gameData.alamoMake);
+    dinoClick(gameData.anklyoMake);
+    dinoClick(gameData.stegoMake);
+    dinoClick(gameData.jaxaMake);
+    eggsPerSecond();
+}, 1000)
 
 var saveGameLoop = window.setInterval(function() {
     localStorage.setItem("dinoClickerSave", JSON.stringify(gameData))
-  }, 15000)
+}, 15000)
 
 var savegame = JSON.parse(localStorage.getItem("goldMinerSave"))
 if (savegame !== null) {
