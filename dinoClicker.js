@@ -106,10 +106,39 @@ function buyJaxa() {
     }
 }
 
-function eggsPerSecond() {
+
+// This tracks how many eggs we make a second
+function eggsPerSecond() { // this is the total eggs per second
     gameData.eggsPerSecond = gameData.raptorMake + gameData.diloMake + gameData.alamoMake + gameData.anklyoMake + gameData.stegoMake + gameData.jaxaMake;
     document.getElementById("eggspersecond").innerHTML = gameData.eggsPerSecond;
 }
+
+
+//These are for the individual dinosaurs
+function raptorEggsPerSecond() {
+    document.getElementById("raptorEggsPerSecond").innerHTML = gameData.raptorMake;
+}
+
+function diloEggsPerSecond() {
+    document.getElementById("diloEggsPerSecond").innerHTML = gameData.diloMake;
+}
+
+function ankyloEggsPerSecond() {
+    document.getElementById("anklyoEggsPerSecond").innerHTML = gameData.anklyoMake;
+}
+
+function alamoEggsPerSecond() {
+    document.getElementById("alamoEggsPerSecond").innerHTML = gameData.alamoMake;
+}
+
+function stegoEggsPerSecond() {
+    document.getElementById("stegoEggsPerSecond").innerHTML = gameData.stegoMake;
+}
+
+function jaxaEggsPerSecond() {
+    document.getElementById("jaxaEggsPerSecond").innerHTML = gameData.jaxaMake;
+}
+
 
 
 // Game play loop
@@ -121,6 +150,12 @@ var mainGameLoop = window.setInterval(function() {
     dinoClick(gameData.stegoMake);
     dinoClick(gameData.jaxaMake);
     eggsPerSecond();
+    raptorEggsPerSecond();
+    diloEggsPerSecond();
+    ankyloEggsPerSecond();
+    alamoEggsPerSecond();
+    stegoEggsPerSecond();
+    jaxaEggsPerSecond();
 }, 1000)
 
 var saveGameLoop = window.setInterval(function() {
