@@ -2,51 +2,57 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-        <title>Boomslap!</title>
+        <title>Dinosaur Clicker!</title>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="stylesheet" href="dinoClicker.css"/>
         <script src="dinoClicker.js" defer></script>
     </head>
     <body>
+        <button id="darkModeToggle" style="position: absolute; bottom: 20px; left: 20px; z-index: 9999; padding: 10px; background: #ff8c00; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            Toggle Dark Mode
+        </button>
+        
         <a href="#" class="clickDino" onclick="dinoClick(gameData.dinoEggsMake)"><img src="https://clipart-library.com/8300/2368/dinosaur-egg-vector-illustration-cartoon-icon_400474-482.jpg" width="750" height="675" /></a>
         <div class="bank">Dino Eggs: <span id="dinoEggs"> 0 </span></div>
-        <div class="eggspersecond">Eggs Per Second: <span id="eggspersecond"> 0 </span></div>
-        <div class="raptorEggsperSecond">Raptors Make:<span id= "raptorEggsPerSecond"> 0 </span>  /second</div>
-        <div class="raptorEggsperSecond">Dilophasauruses Make:<span id= "diloEggsPerSecond"> 0 </span>  /second</div>
-        <div class="raptorEggsperSecond">Ankylosauruses Make:<span id= "anklyoEggsPerSecond"> 0 </span>  /second</div>
-        <div class="raptorEggsperSecond">Alamosauruses Make:<span id= "alamoEggsPerSecond"> 0 </span>  /second</div>
-        <div class="raptorEggsperSecond">Stegosauruses Make:<span id= "stegoEggsPerSecond"> 0 </span>  /second</div>
-        <div class="raptorEggsperSecond">Jaxartosauruses Make:<span id= "jaxaEggsPerSecond"> 0 </span>  /second</div>
+        <div class="left clear top">
+            <div class="eggspersecond">Eggs Per Second: <span id="eggspersecond"> 0 </span></div>
+            <div class="dinoEggsPerSecond">Raptors Make: <span id= "raptorEggsPerSecond"> 0 </span>  /second</div>
+            <div class="dinoEggsPerSecond">Dilophasauruses Make: <span id= "diloEggsPerSecond"> 0 </span>  /second</div>
+            <div class="dinoEggsPerSecond">Ankylosauruses Make: <span id= "anklyoEggsPerSecond"> 0 </span>  /second</div>
+            <div class="dinoEggsPerSecond">Alamosauruses Make: <span id= "alamoEggsPerSecond"> 0 </span>  /second</div>
+            <div class="dinoEggsPerSecond">Stegosauruses Make: <span id= "stegoEggsPerSecond"> 0 </span>  /second</div>
+            <div class="dinoEggsPerSecond">Jaxartosauruses Make: <span id= "jaxaEggsPerSecond"> 0 </span>  /second</div>
+        </div>
         <div class="split right outer display">
             <div class="building buy Raptors" href="#" onclick="buyRaptor()">
-                Velociraptors: <span id="veloRaptor">0</span> <br>
-                Raptor Cost: <span id="raptorCost"> 10 </span> <br>
-                Buying a Raptor gives +X eggs!
+                <h3>Velociraptor</h3>
+                Owned: <span id="veloRaptor">0</span> <br>
+                Buy: <span id="raptorCost"> 10 </span> <br>
             </div>
             <div class="building buy Dilophasaurs" href="#"  onclick="buyDilo()">
-                Dilophasauruses: <span id="diloSaur">0</span> <br>
-                Dilophasaur Cost: <span id="diloCost">100</span> <br>
-                Buying a Dilophasaur gives +X eggs!
+                <h3>Dilophasauruses</h3>
+                Owned: <span id="diloSaur">0</span> <br>
+                Buy: <span id="diloCost">100</span> <br>
             </div>
             <div class="building buy Ankylosaurus" href="#" onclick="buyAnkylo()">
-                Ankylosauruses: <span id="ankyloSaur">0</span> <br>
-                Ankylosaurus Cost: <span id="ankyloCost">1000</span> <br>
-                Buying an Ankylosaurus gives +X eggs!
+                <h3>Ankylosauruses</h3>
+                Owned: <span id="ankyloSaur">0</span> <br>
+                Buy: <span id="ankyloCost">1000</span> <br>
             </div>
             <div class="building buy Alamosaurus" href="#" onclick="buyAlamo()">
-                Alamosauruses: <span id="alamoSaur">0</span> <br>
-                Alamosaurus Cost: <span id="alamoCost">10000</span> <br>
-                Buying an Alamosaurus gives +X eggs!
+                <h3>Alamosauruses</h3> <br>
+                Owned: <span id="alamoSaur">0</span> <br>
+                Buy: <span id="alamoCost">10000</span> <br>
             </div>
             <div class="building buy Stegosaurus" href="#" onclick="buyStego()">
-                Stegosauruses: <span id="stegoSaur">0</span> <br>
-                Stegosaurus Cost: <span id="stegoCost">100000</span> <br>
-                Buying a Stegosaurus give +X eggs!
+                <h3>Stegosauruses</h3>
+                Owned: <span id="stegoSaur">0</span> <br>
+                Buy: <span id="stegoCost">100000</span> <br>
             </div>
             <div class="building buy Jaxartosaurus" href="#" onclick="buyJaxa()">
-                Jaxartosauruses: <span id="jaxaSaur">0</span> <br>
-                Jaxartosaurus Cost: <span id="jaxaCost">1000000</span> <br>
-                Buying a Jaxartosaurus give +X eggs!
+                <h3>Jaxartosauruses</h3>
+                Owned: <span id="jaxaSaur">0</span> <br>
+                Buy: <span id="jaxaCost">1000000</span> <br>
             </div>
         </div>
     </body>

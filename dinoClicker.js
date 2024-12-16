@@ -1,3 +1,5 @@
+document.getElementById("darkModeToggle").addEventListener("click", toggleDarkMode);
+
 var gameData = {
     dinoEggs: 0,
     dinoEggsMake: 1000000,
@@ -33,6 +35,7 @@ function dinoClick(input) {
     gameData.dinoEggs += input; 
     document.getElementById("dinoEggs").innerHTML = gameData.dinoEggs; // updates the bank
 }
+
 // This is all of the buy functions for the dinosaurs
 function buyRaptor() {
     if(gameData.dinoEggs >= gameData.raptorCost){ // checks if player can afford the raptors
@@ -41,7 +44,7 @@ function buyRaptor() {
         gameData.raptorMake += 1; // adds to how much it makes
         document.getElementById("veloRaptor").innerHTML = gameData.veloRaptor; // updates the number of raptors
         document.getElementById("dinoEggs").innerHTML = gameData.dinoEggs; // updates the bank
-        gameData.raptorCost = Math.floor(Math.pow(gameData.raptorCost, 1.05)); // calculate next cost
+        gameData.raptorCost = Math.floor(gameData.raptorCost + 2); // calculate next cost
         document.getElementById("raptorCost").innerHTML = gameData.raptorCost; // udates the raptor cost
     }
 }
@@ -162,7 +165,26 @@ var saveGameLoop = window.setInterval(function() {
     localStorage.setItem("dinoClickerSave", JSON.stringify(gameData))
 }, 15000)
 
-var savegame = JSON.parse(localStorage.getItem("goldMinerSave"))
+var savegame = JSON.parse(localStorage.getItem("dinoClickerSave"))
 if (savegame !== null) {
-  gameData = savegame
+  gameData = savegame;
 }
+
+// Dark Mode Toggle Function
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+}
+
+if(localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+} else {
+    document.body.classList.remove('dark-mode');
+}
+
+window.addEventListener('beforeunload', function() {
+    if(document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+    } else {
+        localStorage.setItem('theme', 'light');
+    }
+});
