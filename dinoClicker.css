@@ -59,7 +59,7 @@ h1 {
     align-items: center;
     padding: 20px;
     margin: auto;
-    max-width: 80%;
+    max-width: 60%;
 }
 
 /* Sidebar Styling */
@@ -105,12 +105,13 @@ h1 {
 
 /* Dinosaur Boxes Styling */
 .display > .building {
-    width: 60%;  /* Smaller width */
+    width: 70%;  /* Smaller width */
     max-width: 400px;  /* Smaller max-width */
-    height: 300px;
+    height: 200px;
     min-height: 100px;  /* Reduce the height */
+    max-height: 90%;
     padding: 15px;
-    margin: 20px auto;
+    margin: 20px;
     background-color: #333;
     border-radius: 15px;
     display: flex;
@@ -118,7 +119,7 @@ h1 {
     justify-content: center;  /* Align content in the center vertically */
     align-items: center;  /* Align content in the center horizontally */
     color: white;
-    box-shadow: 0 4px 6px black;
+    box-shadow: 0 4px 6px rgb(224, 219, 219);
     transition: all 0.3s ease;
     user-select: none;
 }
@@ -133,13 +134,13 @@ h1 {
     background-color: #ff8c00;
     color: white;
     padding: 10px 25px;  /* Adjust button padding to fit new size */
-    font-size: 1rem;  /* Adjust font size */
+    font-size: 0.5rem;  /* Adjust font size */
     cursor: pointer;
     border: none;
     transition: all 0.3s ease;
 }
 
-.display > .building > .buy:hover {
+.display > .building  .buy:hover {
     background-color: #ffa500;
     transform: translateY(-2px);
 }
@@ -163,8 +164,8 @@ h1 {
 }
 
 .clickDino img {
-    width: 700px;
-    height: 700px;
+    width: 450px;
+    height: 450px;
     border-radius: 50%;
     border: 5px solid #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
